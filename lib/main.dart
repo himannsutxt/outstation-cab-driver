@@ -40,7 +40,7 @@ class DriverApp extends StatelessWidget {
         ),
         filledButtonTheme: FilledButtonThemeData(style: FilledButton.styleFrom(minimumSize: const Size.fromHeight(50), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)), textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700))),
       ),
-      home: api.base.isEmpty ? const SetupScreen() : (api.token.isEmpty ? const LoginScreen() : const HomeScreen()),
+      home: const SplashScreen(),
     );
   }
 }
@@ -74,6 +74,43 @@ Widget card(Widget child) => Container(
       decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12), border: Border.all(color: line)),
       child: child,
     );
+
+// ---------------------------------------------------------------- Splash
+const splashNavy = Color(0xFF0B1736);
+
+/// Brand screen shown for two seconds when the app opens.
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+  @override
+  State<SplashScreen> createState() => _SplashState();
+}
+
+class _SplashState extends State<SplashScreen> {
+  Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+    timer = Timer(const Duration(seconds: 2), next);
+  }
+
+  @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
+
+  void next() {
+    if (!mounted) return;
+    go(context, api.base.isEmpty ? const SetupScreen() : (api.token.isEmpty ? const LoginScreen() : const HomeScreen()));
+  }
+
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        backgroundColor: splashNavy,
+        body: SizedBox.expand(child: Image.asset('assets/splash.jpg', fit: BoxFit.cover, alignment: Alignment.center, semanticLabel: 'Aravalli Cabs')),
+      );
+}
 
 // ---------------------------------------------------------------- Setup
 class SetupScreen extends StatefulWidget {

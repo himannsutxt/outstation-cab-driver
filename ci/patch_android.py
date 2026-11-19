@@ -8,3 +8,8 @@ s = s.replace('    <application', block + '    <application', 1)
 s = re.sub(r'android:label="[^"]*"', 'android:label="Cab Driver"', s, count=1)
 m.write_text(s)
 print('Manifest patched')
+
+# Dark navy launch background, so there is no white flash before the splash image appears.
+xml = '<?xml version="1.0" encoding="utf-8"?>\n<layer-list xmlns:android="http://schemas.android.com/apk/res/android">\n    <item><shape android:shape="rectangle"><solid android:color="#0B1736"/></shape></item>\n</layer-list>\n'
+for f in pathlib.Path('android/app/src/main/res').glob('drawable*/launch_background.xml'):
+    f.write_text(xml); print('Launch background set:', f)
