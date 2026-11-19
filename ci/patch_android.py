@@ -13,3 +13,11 @@ print('Manifest patched')
 xml = '<?xml version="1.0" encoding="utf-8"?>\n<layer-list xmlns:android="http://schemas.android.com/apk/res/android">\n    <item><shape android:shape="rectangle"><solid android:color="#0B1736"/></shape></item>\n</layer-list>\n'
 for f in pathlib.Path('android/app/src/main/res').glob('drawable*/launch_background.xml'):
     f.write_text(xml); print('Launch background set:', f)
+
+# App icon: copy the Aravalli Cabs launcher icon (classic and adaptive) over the default Flutter icon.
+import shutil
+res = pathlib.Path('android/app/src/main/res')
+for f in pathlib.Path('ci/icon').rglob('*'):
+    if f.is_file():
+        dest = res / f.relative_to('ci/icon'); dest.parent.mkdir(parents=True, exist_ok=True); shutil.copyfile(f, dest)
+print('App icon installed')

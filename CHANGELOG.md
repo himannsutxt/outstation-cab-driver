@@ -1,5 +1,9 @@
 # Driver app changelog
 
+## 1.0.3 — 20-11-2026
+### Built
+- Aravalli Cabs app icon (classic and adaptive, so it fits round and square phone icon shapes)
+
 ## 1.0.2 — 19-11-2026
 ### Built
 - App renamed to Aravalli Driver (phone label, title, tracking notification); APK file is now aravalli-driver-vX.apk
