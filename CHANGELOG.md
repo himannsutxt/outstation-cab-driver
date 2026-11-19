@@ -1,6 +1,6 @@
 # Driver app changelog
 
-## 1.0.0 — 19-11-2026 (source written, not yet compiled)
+## 1.0.0 — 19-11-2026 (compiles and passes unit tests in GitHub Actions; not yet run on a phone)
 ### Built
 - One-time office address setup with connection check
 - Login with mobile + PIN, one phone at a time
@@ -11,7 +11,8 @@
 - Tooltips on every field and button
 - APK built by GitHub Actions with a fixed signing key, so new versions install over old ones
 ### Pending
-- First compile and test on a real phone
+- Test on a real phone (login, tracking with screen off, trip start and end, SOS)
+- Smaller download: build one APK per phone type instead of one 51 MB file
 - Stored location points when there is no network (needs a small server change to accept timestamps)
 - Push notification for a new trip
 - Hindi language option
