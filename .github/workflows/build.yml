@@ -28,12 +28,12 @@ jobs:
       - name: Name the APK
         run: |
           V=$(grep '^version:' pubspec.yaml | sed 's/version: //; s/+.*//')
-          cp build/app/outputs/flutter-apk/app-release.apk "cab-driver-v$V.apk"
+          cp build/app/outputs/flutter-apk/app-release.apk "aravalli-driver-v$V.apk"
           echo "V=$V" >> $GITHUB_ENV
       - uses: actions/upload-artifact@v4
-        with: { name: cab-driver-apk, path: cab-driver-v*.apk }
+        with: { name: cab-driver-apk, path: aravalli-driver-v*.apk }
       - uses: softprops/action-gh-release@v2
         with:
           tag_name: driver-v${{ env.V }}-${{ github.run_number }}
           name: Driver app v${{ env.V }} (build ${{ github.run_number }})
-          files: cab-driver-v*.apk
+          files: aravalli-driver-v*.apk

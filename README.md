@@ -1,6 +1,6 @@
-# Cab Driver (Android)
+# Aravalli Driver (Android)
 
-Flutter app for drivers of the Outstation Cab system. It talks to the website's driver API.
+Flutter app for drivers of Aravalli Cabs. It talks to the website's driver API.
 
 ## Get the APK
 Every push to `main` builds the APK with GitHub Actions. Download it from the repository's **Releases** page, or from the run's **Artifacts**.

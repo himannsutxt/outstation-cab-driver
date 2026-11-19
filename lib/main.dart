@@ -25,7 +25,7 @@ class DriverApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Cab Driver',
+      title: 'Aravalli Driver',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -298,7 +298,7 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
       perm = await Geolocator.requestPermission();
     }
     if (perm == LocationPermission.denied || perm == LocationPermission.deniedForever) {
-      if (mounted) setState(() => gps = 'Location permission is blocked. Allow it in phone Settings → Apps → Cab Driver → Permissions.');
+      if (mounted) setState(() => gps = 'Location permission is blocked. Allow it in phone Settings → Apps → Aravalli Driver → Permissions.');
       return;
     }
     if (mounted) setState(() => gps = 'Getting location…');
@@ -307,7 +307,7 @@ class _HomeState extends State<HomeScreen> with WidgetsBindingObserver {
       distanceFilter: 0,
       intervalDuration: Duration(seconds: interval < 5 ? 5 : interval),
       foregroundNotificationConfig: const ForegroundNotificationConfig(
-        notificationTitle: 'Cab Driver is sharing your location',
+        notificationTitle: 'Aravalli Driver is sharing your location',
         notificationText: 'You are on duty. Go off duty in the app to stop.',
         enableWakeLock: true,
         setOngoing: true,

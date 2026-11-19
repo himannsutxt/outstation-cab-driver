@@ -1,5 +1,9 @@
 # Driver app changelog
 
+## 1.0.2 — 19-11-2026
+### Built
+- App renamed to Aravalli Driver (phone label, title, tracking notification); APK file is now aravalli-driver-vX.apk
+
 ## 1.0.1 — 19-11-2026
 ### Built
 - Aravalli Cabs splash screen shown for two seconds when the app opens
