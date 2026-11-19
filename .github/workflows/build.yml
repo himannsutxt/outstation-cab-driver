@@ -2,6 +2,7 @@ name: Build driver APK
 on:
   push:
     branches: [main]
+    paths-ignore: ['customer/**', '.github/workflows/customer.yml']
   workflow_dispatch:
 permissions:
   contents: write
