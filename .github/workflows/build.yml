@@ -16,7 +16,7 @@ jobs:
         with: { channel: stable, cache: true }
       - name: Generate Android project files
         run: |
-          flutter create --platforms=android --org in.outstationcab --project-name outstation_driver .
+          flutter create --platforms=android --org com.outstationcab --project-name outstation_driver .
           rm -f test/widget_test.dart
           python3 ci/patch_android.py
       - name: Use the fixed signing key (so updates install over older versions)
